@@ -12,3 +12,21 @@
 * Run: `ssh-keygen -t rsa` on my local machine, named keys as grader
 * Copied contents of grader.pub into ~/.ssh/authorized_keys of grader user. Changed the user from root to grader by using command: `sudo su - grader`
 * `ssh -i ~/.ssh/grader grader@13.125.214.180 -p 2200`, enter password 123456
+ 
+## Installing Apache Server with mod_wsgi
+* `sudo apt-get install apache2`
+* Visit [http://13.125.214.180.xip.io/]()
+* `sudo apt-get install libapache2-mod-wsgi`
+* In file /etc/apache2/sites-enabled/000-default.conf add: `WSGIScriptAlias / /var/www/html/myapp.wsgi` right before closing `</VirtualHost>` tag.
+* `sudo apache2ctl restart`
+* Create a new file: `sudo nano /var/www/html/myapp.wsgi` with contents:
+```python2
+def application(environ, start_response):
+    status = '200 OK'
+    output = 'Hello Udacity!'
+    response_headers = [('Content-type', 'text/plain'), ('Content-Length', str(len(output)))]
+    start_response(status, response_headers)
+    return [output]
+```
+* Visit [http://13.125.214.180.xip.io/]()
+* Also, install PostgreSQL: `sudo apt-get install postgresql`
