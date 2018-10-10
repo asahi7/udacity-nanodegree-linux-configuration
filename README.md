@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is the required project of Udacity Full Stack Nanodegree course. The goal is to upload Flask [project](https://github.com/asahi7/udacity-nanodegree-catalog-app) to AWS Lightsail and configure it to be available on the Internet. The website is available at [http://13.125.214.180.xip.io]().
+This is the required project of Udacity Full Stack Nanodegree course. The goal is to upload Flask [project](https://github.com/asahi7/udacity-nanodegree-catalog-app) to AWS Lightsail and configure it to be available on the Internet. The website is available at http://13.125.214.180.xip.io.
 
 For graders: SSH port is 2200, the password is '123456' (without quotes). Some of the software installed is listed in /home/grader/requirements.txt and others are listed in this file.
 
@@ -25,7 +25,7 @@ Resources used:
  
 ## Installing Apache Server with mod_wsgi
 * `sudo apt-get install apache2`
-* Visit [http://13.125.214.180.xip.io/]()
+* Visit http://13.125.214.180.xip.io/
 * `sudo apt-get install libapache2-mod-wsgi`
 * In file /etc/apache2/sites-enabled/000-default.conf add: `WSGIScriptAlias / /var/www/html/myapp.wsgi` right before closing `</VirtualHost>` tag.
 * `sudo apache2ctl restart`
@@ -38,7 +38,7 @@ def application(environ, start_response):
     start_response(status, response_headers)
     return [output]
 ```
-* Visit [http://13.125.214.180.xip.io/]()
+* Visit http://13.125.214.180.xip.io/
 * Also, install PostgreSQL: `sudo apt-get install postgresql`
 
 ## Prerequisites to running Item Catalog Project
@@ -70,6 +70,6 @@ from catalog import app as applicatio
         </directory>
 </VirtualHost>
 ```
-* Configure your authorized domains for your project on: [https://console.developers.google.com/]() and upload a new client_secret.json to the server
+* Configure your authorized domains for your project on: https://console.developers.google.com/ and upload a new client_secret.json to the server
 * Lastly, do `sudo apache2ctl restart`
-* Now you can visit [http://13.125.214.180.xip.io/]()
+* Now you can visit http://13.125.214.180.xip.io/
